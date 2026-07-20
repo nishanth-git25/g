@@ -40,8 +40,8 @@ def extract(data: InvoiceRequest):
     text = data.invoice_text
 
     invoice_no = find(
-        r"Invoice\s*No[:\s]*([A-Za-z0-9\-\/]+)",
-        text
+    r"(?:Invoice\s*(?:No|Number|#)|Inv\s*No|Bill\s*No)\s*[:#]?\s*([A-Za-z0-9\-\/]+)",
+    text
     )
 
     vendor = find(
